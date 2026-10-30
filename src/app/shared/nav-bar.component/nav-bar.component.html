@@ -1,0 +1,64 @@
+<nav class="bg-slate-950 text-white shadow-md">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+
+            <!-- Título -->
+            <div class="text-xl font-bold tracking-wide text-white">
+                {{ 'NAVBAR.TITLE' | translate }}
+            </div>
+
+            <div class="hidden md:flex space-x-8 font-medium items-center">
+                <a routerLink="dashboard" class="text-slate-300 hover:text-cyan-400 transition">{{ "NAVBAR.DASHBOARD" |
+                    translate
+                    }}</a>
+                <a routerLink="deposit-list" class="text-slate-300 hover:text-cyan-400 transition">{{ 'NAVBAR.DEPOSITS'
+                    |
+                    translate
+                    }}</a>
+                <mat-form-field appearance="outline" subscriptSizing="dynamic"
+                    class="w-36 text-sm text-white select-custom">
+                    <mat-label>{{ 'NAVBAR.LANGUAGE' | translate }}</mat-label>
+                    <mat-select [(ngModel)]="selectedLanguage" (selectionChange)="onLanguageChange($event.value)">
+                        <mat-option *ngFor="let lang of languages" [value]="lang.code">
+                            <span class="mr-2">{{ lang.flag }}</span> {{ lang.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="md:hidden flex items-center">
+                <button (click)="toggleMenu()"
+                    class="p-2 rounded text-white hover:bg-slate-800 transition focus:outline-none">
+                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                        <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div *ngIf="isMenuOpen" class="md:hidden bg-slate-900 border-t border-slate-800">
+        <div class="px-4 pt-2 pb-4 space-y-2 font-medium">
+            <a href="#"
+                class="block py-2 px-3 rounded text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition">{{
+                'NAVBAR.HOME' | translate }}</a>
+            <a href="#"
+                class="block py-2 px-3 rounded text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition">{{
+                'NAVBAR.REPORTS' | translate }}</a>
+
+            <div class="pt-2 px-3">
+                <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full text-white">
+                    <mat-select [(ngModel)]="selectedLanguage">
+                        <mat-option *ngFor="let lang of languages" [value]="lang.code">
+                            <span class="mr-2">{{ lang.flag }}</span> {{ lang.label }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</nav>

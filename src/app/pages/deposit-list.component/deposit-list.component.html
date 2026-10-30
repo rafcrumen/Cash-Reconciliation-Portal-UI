@@ -1,0 +1,69 @@
+<div class="mat-title text-2xl font-bold text-slate-800 mb-4">{{ 'DEPOSIT-LIST.TITLE' | translate }}</div>
+<div class="text-red-500 mb-2 font-medium" *ngIf="error">{{ error }}</div>
+
+<mat-table *ngIf="data.length > 0" [dataSource]="dataSource" class="w-full">
+
+    <ng-container matColumnDef="depositNumber">
+        <mat-header-cell *matHeaderCellDef class="font-semibold">{{ 'DEPOSIT.NUMBER' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let item"><strong>{{ item.depositNumber }}</strong></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="storeNumber">
+        <mat-header-cell *matHeaderCellDef class="font-semibold">{{ 'DEPOSIT.STORE' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let item">{{ item.storeNumber }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="expectedAmount">
+        <mat-header-cell *matHeaderCellDef class="justify-end text-right pr-4 font-semibold">{{ 'DEPOSIT.EXPECTED' |
+            translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let item" class="justify-end text-right pr-4">{{ item.expectedAmount | currency
+            }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actualAmount">
+        <mat-header-cell *matHeaderCellDef class="justify-end text-right pr-4 font-semibold">{{ 'DEPOSIT.ACTUAL' |
+            translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let item" class="justify-end text-right pr-4">
+            {{ item.actualAmount ? (item.actualAmount | currency) : '-' }}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="variance">
+        <mat-header-cell *matHeaderCellDef class="justify-end text-right pr-4 font-semibold">{{ 'DEPOSIT.VARIANCE' |
+            translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let item" class="justify-end text-right pr-4"
+            [ngClass]="{'text-red-600': item.variance < 0, 'text-green-600': item.variance > 0}">
+            {{ item.variance | currency }}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef class="font-semibold">{{ 'DEPOSIT.STATUS' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            <span class="px-2 py-1 text-xs font-bold rounded" [ngClass]="{
+              'bg-yellow-100 text-yellow-800': item.status === 1,
+              'bg-green-100 text-green-800': item.status === 2,
+              'bg-blue-100 text-blue-800': item.status === 3,
+              'bg-red-100 text-red-800': item.status === 4
+            }">
+                {{ getStatusKey(item.status)| translate }}
+            </span>
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef class="font-semibold">{{ 'COMMON.ACTIONS' | translate }}</mat-header-cell>
+        <mat-cell *matCellDef="let item">
+            <div class="flex gap-2">
+                <button mat-icon-button color="primary" [title]="'BUTTON.RECONCILE' | translate"
+                    (click)="setOptions(item)">
+                    <i class="material-icons">assignment</i>
+                </button>
+            </div>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="bg-slate-50"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="hover:bg-slate-50 transition"></mat-row>
+
+</mat-table>
