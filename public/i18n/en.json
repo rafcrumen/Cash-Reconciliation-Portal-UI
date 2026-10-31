@@ -1,0 +1,58 @@
+{
+    "APP": {
+        "NAME": "Cash Reconciliation Portal",
+        "DEPOSIT_LIST_TITLE": "Deposits"
+    },
+    "DEPOSIT": {
+        "NUMBER": "Número de Depósito",
+        "STORE": "Número de Tienda",
+        "EXPECTED": "Monto Esperado",
+        "ACTUAL": "Monto Real",
+        "VARIANCE": "Diferencia",
+        "STATUS": "Estado",
+        "DATE": "Fecha de Depósito"
+    },
+    "DEPOSIT_ACTIONS": {
+        "ADD_DEPOSIT": "Add Deposit",
+        "EDIT_DEPOSIT": "Edit Deposit",
+        "DELETE_DEPOSIT": "Delete Deposit",
+        "RECONCILIATE_DEPOSIT": "Reconciliate Deposit"
+    },
+    "DASHBOARD": {
+        "TITLE": "Panel de Control Contable",
+        "TOTAL_DEPOSITS": "Total Depósitos",
+        "MATCHED_DEPOSITS": "Depósitos Conciliados",
+        "SHORTAGES": "Faltantes",
+        "OVERAGES": "Sobrantes",
+        "TOTAL_VARIANCE": "Diferencia Total"
+    },
+    "STATUS": {
+        "PENDING": "Pending",
+        "MATCHED": "Matched",
+        "OVERAGE": "Overage",
+        "SHORTAGE": "Shortage"
+    },
+    "COMMON": {
+        "CANCEL": "Cancelar",
+        "ADD": "Agregar",
+        "SAVE": "Guardar",
+        "ACTIONS": "Acciones"
+    },
+    "NAVBAR": {
+        "DASHBOARD": "Dashboard",
+        "DEPOSITS": "Deposits",
+        "TITLE": "Cash Reconciliation Portal",
+        "HOME": "Home",
+        "REPORTS": "Reports"
+    },
+    "BUTTONS": {
+        "ADD": "Agregar",
+        "HOME": "Home",
+        "CANCEL": "Cancel",
+        "SAVE": "Save",
+        "BACK": "Back"
+    },
+    "ERRORS-MESSAGES": {
+        "DASHBOARD_LOADING": "Error loading dashboard stats"
+    }
+}

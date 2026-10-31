@@ -1,0 +1,63 @@
+<div class="flex items-center gap-4 mb-6">
+    <nav-home-button></nav-home-button>
+    <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+        <i class="material-icons text-slate-700">dashboard</i>
+        {{ 'DASHBOARD.TITLE' | translate }}
+    </h2>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div class="flex justify-between items-start text-slate-400">
+            <span class="text-xs font-semibold uppercase tracking-wider">{{ 'DASHBOARD.TOTAL_DEPOSITS' | translate
+                }}</span>
+            <i class="material-icons text-blue-500 bg-blue-50 p-1.5 rounded-lg text-sm">layers</i>
+        </div>
+        <div class="mt-2 text-2xl font-bold text-slate-800">
+            {{ stats.totalDeposits }}
+        </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div class="flex justify-between items-start text-slate-400">
+            <span class="text-xs font-semibold uppercase tracking-wider">{{ 'DASHBOARD.MATCHED_DEPOSITS' | translate
+                }}</span>
+            <i class="material-icons text-green-500 bg-green-50 p-1.5 rounded-lg text-sm">check_circle</i>
+        </div>
+        <div class="mt-2 text-2xl font-bold text-green-600">
+            {{ stats.matchedDeposits }}
+        </div>
+    </div>
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div class="flex justify-between items-start text-slate-400">
+            <span class="text-xs font-semibold uppercase tracking-wider">{{ 'DASHBOARD.SHORTAGES' | translate }}</span>
+            <i class="material-icons text-red-500 bg-red-50 p-1.5 rounded-lg text-sm">trending_down</i>
+        </div>
+        <div class="mt-2 text-2xl font-bold text-red-600">
+            {{ stats.shortages }}
+        </div>
+    </div>
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div class="flex justify-between items-start text-slate-400">
+            <span class="text-xs font-semibold uppercase tracking-wider">{{ 'DASHBOARD.OVERAGES' | translate }}</span>
+            <i class="material-icons text-amber-500 bg-amber-50 p-1.5 rounded-lg text-sm">add_circle_outline</i>
+        </div>
+        <div class="mt-2 text-2xl font-bold text-amber-600">
+            {{ stats.overages }}
+        </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 flex flex-col justify-between">
+        <div class="flex justify-between items-start text-slate-400">
+            <span class="text-xs font-semibold uppercase tracking-wider">{{ 'DASHBOARD.TOTAL_VARIANCE' | translate
+                }}</span>
+            <i class="material-icons text-purple-500 bg-purple-50 p-1.5 rounded-lg text-sm">attach_money</i>
+        </div>
+        <div class="mt-2 text-xl font-extrabold"
+            [ngClass]="{'text-red-600': stats.totalVarianceAmount < 0, 'text-green-600': stats.totalVarianceAmount >= 0}">
+            {{ stats.totalVarianceAmount | currency }}
+        </div>
+    </div>
+
+</div>

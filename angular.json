@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "front": {
+    "ng": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -26,7 +26,11 @@
               }
             ],
             "styles": [
+              "src/material-theme.scss",
               "src/styles.css"
+            ],
+            "polyfills": [
+              "zone.js"
             ]
           },
           "configurations": {
@@ -48,7 +52,13 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -57,10 +67,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "front:build:production"
+              "buildTarget": "ng:build:production"
             },
             "development": {
-              "buildTarget": "front:build:development"
+              "buildTarget": "ng:build:development"
             }
           },
           "defaultConfiguration": "development"

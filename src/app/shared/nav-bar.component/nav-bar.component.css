@@ -1,0 +1,4 @@
+/* Por si la versión de Material requiere inyectarlo directamente en el elemento interno: */
+* {
+    --mat-select-enabled-trigger-text-color: #ffffff !important;
+}
