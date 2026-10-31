@@ -42,8 +42,8 @@
         "ACTIONS": "Acciones"
     },
     "NAVBAR": {
-        "DASHBOARD": "Dashboard",
-        "DEPOSITS": "Deposits",
+        "DASHBOARD": "Panel de Control",
+        "DEPOSITS": "Depositos",
         "TITLE": "Cash Reconciliation Portal",
         "HOME": "Home",
         "REPORTS": "Reports"

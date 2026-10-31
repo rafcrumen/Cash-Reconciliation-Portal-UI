@@ -18,7 +18,7 @@ import { RouterLink } from '@angular/router';
     RouterLink,
   ],
   templateUrl: './nav-bar.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './nav-bar.component.css',
 })
 export class NavbarComponent implements OnInit {
@@ -33,7 +33,7 @@ export class NavbarComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.translate.use(this.selectedLanguage);
+    //this.translate.use(this.selectedLanguage);
   }
 
   toggleMenu() {

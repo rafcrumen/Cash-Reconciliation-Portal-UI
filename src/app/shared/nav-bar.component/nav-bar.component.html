@@ -8,7 +8,7 @@
             </div>
 
             <div class="hidden md:flex space-x-8 font-medium items-center">
-                <a routerLink="dashboard" class="text-slate-300 hover:text-cyan-400 transition">{{ "NAVBAR.DASHBOARD" |
+                <a routerLink="dashboard" class="text-slate-300 hover:text-cyan-400 transition">{{ 'NAVBAR.DASHBOARD' |
                     translate
                     }}</a>
                 <a routerLink="deposit-list" class="text-slate-300 hover:text-cyan-400 transition">{{ 'NAVBAR.DEPOSITS'
@@ -43,16 +43,16 @@
 
     <div *ngIf="isMenuOpen" class="md:hidden bg-slate-900 border-t border-slate-800">
         <div class="px-4 pt-2 pb-4 space-y-2 font-medium">
-            <a href="#"
+            <a routerLink="dashboard"
                 class="block py-2 px-3 rounded text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition">{{
-                'NAVBAR.HOME' | translate }}</a>
-            <a href="#"
+                'NAVBAR.DASHBOARD' | translate }}</a>
+            <a routerLink="deposit-list"
                 class="block py-2 px-3 rounded text-slate-200 hover:bg-slate-800 hover:text-cyan-400 transition">{{
-                'NAVBAR.REPORTS' | translate }}</a>
+                'NAVBAR.DEPOSITS' | translate }}</a>
 
             <div class="pt-2 px-3">
                 <mat-form-field appearance="outline" subscriptSizing="dynamic" class="w-full text-white">
-                    <mat-select [(ngModel)]="selectedLanguage">
+                    <mat-select [(ngModel)]="selectedLanguage" (selectionChange)="onLanguageChange($event.value)">
                         <mat-option *ngFor="let lang of languages" [value]="lang.code">
                             <span class="mr-2">{{ lang.flag }}</span> {{ lang.label }}
                         </mat-option>
