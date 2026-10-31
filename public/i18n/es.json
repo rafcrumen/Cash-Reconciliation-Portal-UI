@@ -1,4 +1,8 @@
 {
+    "APP": {
+        "NAME": "Portal Conciliacion de Efectivo",
+        "DEPOSIT_LIST_TITLE": "Depositos"
+    },
     "DEPOSIT": {
         "NUMBER": "Número de Depósito",
         "STORE": "Número de Tienda",
@@ -8,6 +12,12 @@
         "STATUS": "Estado",
         "DATE": "Fecha de Depósito"
     },
+    "DEPOSIT_ACTIONS": {
+        "ADD_DEPOSIT": "Agregar Depósito",
+        "EDIT_DEPOSIT": "Editar Depósito",
+        "DELETE_DEPOSIT": "Eliminar Depósito",
+        "RECONCILIATE_DEPOSIT": "Conciliar Depósito"
+    },
     "DASHBOARD": {
         "TITLE": "Panel de Control Contable",
         "TOTAL_DEPOSITS": "Total Depósitos",
@@ -16,6 +26,12 @@
         "OVERAGES": "Sobrantes",
         "TOTAL_VARIANCE": "Diferencia Total"
     },
+    "STATUS": {
+        "PENDING": "Pendiente",
+        "MATCHED": "Conciliado",
+        "OVERAGE": "Extra",
+        "SHORTAGE": "Faltante"
+    },
     "COMMON": {
         "CANCEL": "Cancelar",
         "ADD": "Agregar",
@@ -23,11 +39,18 @@
         "ACTIONS": "Acciones"
     },
     "NAVBAR": {
-        "DASHBOARD": "******************Dashboard",
+        "DASHBOARD": "Dashboard",
         "DEPOSITS": "Deposits",
         "TITLE": "Cash Reconciliation Portal",
         "HOME": "Home",
         "REPORTS": "Reports"
+    },
+    "BUTTONS": {
+        "ADD": "Agregar",
+        "HOME": "Home",
+        "CANCEL": "Cancel",
+        "SAVE": "Save",
+        "BACK": "Back"
     },
     "ERRORS-MESSAGES": {
         "DASHBOARD_LOADING": "Error loading dashboard stats"

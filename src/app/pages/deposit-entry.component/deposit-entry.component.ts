@@ -1,13 +1,17 @@
-import { NgIf } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatError, MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'deposit-entry.component',
-  imports: [NgIf, TranslatePipe, ReactiveFormsModule, MatLabel, MatFormField, MatError],
+  imports: [NgIf, TranslatePipe, ReactiveFormsModule, MatLabel, MatFormField, MatError,
+    CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatDatepickerModule
+  ],
   templateUrl: './deposit-entry.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './deposit-entry.component.css',

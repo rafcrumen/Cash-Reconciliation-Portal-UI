@@ -9,11 +9,15 @@ import { DepositEntryComponent } from '../deposit-entry.component/deposit-entry.
 import { HttpService } from '../../services/http.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { DepositReconciliateComponent } from '../deposit-reconciliate.component/deposit-reconciliate.component';
-
+import { NavHomeButtonComponent } from './../../shared/nav-home-button.component/nav-home-button.component'
 @Component({
   selector: 'deposit-list',
   standalone: true,
-  imports: [TranslatePipe, CommonModule, MatTableModule, MatDialogModule, MatButtonModule],
+  imports: [TranslatePipe,
+    CommonModule,
+    MatTableModule,
+    MatDialogModule,
+    MatButtonModule, NavHomeButtonComponent],
   templateUrl: './deposit-list.component.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './deposit-list.component.css',

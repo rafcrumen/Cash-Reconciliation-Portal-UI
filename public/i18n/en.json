@@ -1,4 +1,8 @@
 {
+    "APP": {
+        "NAME": "Cash Reconciliation Portal",
+        "DEPOSIT_LIST_TITLE": "Deposits"
+    },
     "DEPOSIT": {
         "NUMBER": "Número de Depósito",
         "STORE": "Número de Tienda",
@@ -7,6 +11,12 @@
         "VARIANCE": "Diferencia",
         "STATUS": "Estado",
         "DATE": "Fecha de Depósito"
+    },
+    "DEPOSIT_ACTIONS": {
+        "ADD_DEPOSIT": "Add Deposit",
+        "EDIT_DEPOSIT": "Edit Deposit",
+        "DELETE_DEPOSIT": "Delete Deposit",
+        "RECONCILIATE_DEPOSIT": "Reconciliate Deposit"
     },
     "DASHBOARD": {
         "TITLE": "Panel de Control Contable",
@@ -29,11 +39,18 @@
         "ACTIONS": "Acciones"
     },
     "NAVBAR": {
-        "DASHBOARD": "Dashb***********oard",
+        "DASHBOARD": "Dashboard",
         "DEPOSITS": "Deposits",
         "TITLE": "Cash Reconciliation Portal",
         "HOME": "Home",
         "REPORTS": "Reports"
+    },
+    "BUTTONS": {
+        "ADD": "Agregar",
+        "HOME": "Home",
+        "CANCEL": "Cancel",
+        "SAVE": "Save",
+        "BACK": "Back"
     },
     "ERRORS-MESSAGES": {
         "DASHBOARD_LOADING": "Error loading dashboard stats"

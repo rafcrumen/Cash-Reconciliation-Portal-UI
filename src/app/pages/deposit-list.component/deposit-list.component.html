@@ -1,6 +1,11 @@
-<div class="mat-title text-2xl font-bold text-slate-800 mb-4">{{ 'DEPOSIT-LIST.TITLE' | translate }}</div>
+<div class="mat-title text-2xl font-bold text-slate-800 mb-4">{{ 'APP.DEPOSIT_LIST_TITLE' | translate }}</div>
 <div class="text-red-500 mb-2 font-medium" *ngIf="error">{{ error }}</div>
-
+<div class="flex gap-2 mb-4">
+    <button [title]="'BUTTONS.ADD' | translate" mat-mini-fab color="primary" (click)="add()">
+        <i class="material-icons">add</i>
+    </button>
+    <nav-home-button></nav-home-button>
+</div>
 <mat-table *ngIf="data.length > 0" [dataSource]="dataSource" class="w-full">
 
     <ng-container matColumnDef="depositNumber">
