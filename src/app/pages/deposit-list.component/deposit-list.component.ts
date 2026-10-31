@@ -4,12 +4,14 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 
-import { Deposit } from '../../model/model';
+import { Deposit, DepositFilterModel } from '../../model/model';
 import { DepositEntryComponent } from '../deposit-entry.component/deposit-entry.component'; // Componente de diálogo para agregar/editar depósitos
 import { HttpService } from '../../services/http.service';
 import { TranslatePipe } from '@ngx-translate/core';
-import { DepositReconciliateComponent } from '../deposit-reconciliate.component/deposit-reconciliate.component';
+import { DepositReconcileComponent } from '../deposit-reconciliate.component/deposit-reconcile.component';
 import { NavHomeButtonComponent } from './../../shared/nav-home-button.component/nav-home-button.component'
+import { DepositFilterComponent } from '../deposit-filter.component/deposit-filter.component';
+import { HttpParams } from '@angular/common/http';
 @Component({
   selector: 'deposit-list',
   standalone: true,
@@ -28,12 +30,13 @@ export class DepositListComponent implements OnInit {
 
   error: string = '';
   data: Deposit[] = [];
-
+  depositFilter?: DepositFilterModel;
   dataSource = new MatTableDataSource<Deposit>([]);
 
   displayedColumns: string[] = [
     'depositNumber',
     'storeNumber',
+    'depositDate',
     'expectedAmount',
     'actualAmount',
     'variance',
@@ -73,8 +76,9 @@ export class DepositListComponent implements OnInit {
   }
   add(): void {
     const dialogRef = this.dialog.open(DepositEntryComponent, {
-      width: '600px',
-      disableClose: true,
+      width: '420px',
+      maxWidth: '90vw',
+      disableClose: false,
       panelClass: 'custom-dialog-container',
       data: { mode: 'Add', deposit: null },
     });
@@ -94,9 +98,10 @@ export class DepositListComponent implements OnInit {
   }
   edit(item: Deposit): void {
     const dialogRef = this.dialog.open(DepositEntryComponent, {
-      width: '450px',
-      disableClose: true,
-      data: { mode: 'Edit', deposit: item }, // Le pasamos el registro completo seleccionado
+      width: '420px',
+      maxWidth: '90vw',
+      disableClose: false,
+      data: { mode: 'Edit', deposit: item },
     });
     dialogRef.afterClosed().subscribe((result: Deposit | undefined) => {
       if (result) {
@@ -111,17 +116,51 @@ export class DepositListComponent implements OnInit {
     });
   }
   setOptions(item: Deposit): void {
-    const dialogRef = this.dialog.open(DepositReconciliateComponent, {
-      width: '400px',
-      disableClose: true,
+    const dialogRef = this.dialog.open(DepositReconcileComponent, {
+      width: '500px',
+      disableClose: false,
       data: { deposit: item },
     });
     dialogRef.afterClosed().subscribe((actualAmount: number | undefined) => {
       if (actualAmount !== undefined) {
         const payload = { actualAmount };
-        // Invocamos la ruta exacta requerida en tu examen: PUT /api/deposits/{id}/reconcile
         this.httpService.put(`${this._url}/${item.depositId}/reconcile`, payload).subscribe({
           next: () => this.loadDeposits(),
+          error: (err) => {
+            this.error = 'Ocurrió un error durante la conciliación.';
+            console.error(err);
+          },
+        });
+      }
+    });
+  }
+  filter(): void {
+    const dialogRef = this.dialog.open(DepositFilterComponent, {
+      width: '420px',
+      maxWidth: '90vw',
+      disableClose: false,
+      data: { dataFilter: this.depositFilter },
+    });
+    dialogRef.afterClosed().subscribe((dataFilter: DepositFilterModel | undefined) => {
+      if (dataFilter !== undefined) {
+        const payload = dataFilter;
+        this.depositFilter = dataFilter;
+        let params = new HttpParams();
+
+        Object.keys(dataFilter).forEach(key => {
+          const filterKey = key as keyof DepositFilterModel;
+          const value = dataFilter[filterKey];
+
+          if (value !== null && value !== undefined && value !== '') {
+            const stringValue = value instanceof Date ? value.toISOString() : String(value);
+            params = params.append(key, stringValue);
+          }
+        });
+        this.httpService.getFilteredDeposits(`${this._url}/GetFilteredDeposits`, params).subscribe({
+          next: (response) => {
+            this.data = response;
+            this.dataSource.data = response;
+          },
           error: (err) => {
             this.error = 'Ocurrió un error durante la conciliación.';
             console.error(err);

@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="save()" class="flex flex-col p-6 bg-white max-h-[90vh]">
+
+    <div class="pb-4 border-b border-slate-100 flex items-center gap-2">
+        <i class="material-icons text-blue-600">wallet</i>
+        <h2 class="text-xl font-bold text-slate-800">
+            {{ 'DEPOSIT_ACTIONS.RECONCILIATE_DEPOSIT' | translate }}
+        </h2>
+    </div>
+    <div class="flex-1 overflow-y-auto py-5 flex flex-col gap-4 min-w-[320px] md:min-w-[440px]">
+        <mat-form-field appearance="outline" class="w-full">
+            <mat-label>{{ 'DEPOSIT.ACTUAL' | translate }}</mat-label>
+            <input type="number" matInput formControlName="actualAmount" required min="0.01">
+            <span matTextPrefix class="text-slate-400 mr-1">$</span>
+            <mat-error *ngIf="form.controls['actualAmount'].hasError('min')">
+                {{ 'VALIDATION.MIN_AMOUNT' | translate }}
+            </mat-error>
+        </mat-form-field>
+    </div>
+    <div class="flex justify-end gap-3 pt-4 border-t border-slate-100">
+        <button type="button" (click)="cancel()"
+            class="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition duration-200 cursor-pointer">
+            {{ 'BUTTONS.CANCEL' | translate }}
+        </button>
+        <button type="submit" [disabled]="form.invalid" (click)="save()"
+            class="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 disabled:bg-slate-200 disabled:text-slate-400 disabled:cursor-not-allowed rounded-lg shadow-sm transition duration-200 cursor-pointer">
+            {{ 'BUTTONS.SAVE' | translate }}
+        </button>
+
+    </div>
+</form>

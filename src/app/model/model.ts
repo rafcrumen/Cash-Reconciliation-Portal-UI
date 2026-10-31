@@ -9,6 +9,13 @@ export interface Deposit {
     depositDate: string;
 }
 
+export interface DepositFilterModel {
+    depositNumber: string;
+    storeNumber: string;
+    dateStar: Date;
+    dateEnd: Date;
+}
+
 export interface DashboardStats {
     totalDeposits: number;
     matchedDeposits: number;

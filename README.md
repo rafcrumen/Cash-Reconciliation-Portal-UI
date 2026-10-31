@@ -1,3 +1,11 @@
+1.- You can reach out this running application at:
+
+    http://cash-reconciliation-portal-ui.muchas-cosas.com
+
+
+2.- Clone the repo: 
+                git clone https://github.com/rafcrumen/Cash-Reconciliation-Portal-UI.git
+
 # Ng
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.11.

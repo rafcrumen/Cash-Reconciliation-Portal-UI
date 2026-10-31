@@ -17,6 +17,9 @@ export class HttpService {
   getDashBoard(url: string): Observable<DashboardStats> {
     return this.http.get<DashboardStats>(`${this.baseUrl}${url}`);
   }
+  getFilteredDeposits(url: string, params: HttpParams): Observable<Deposit[]> {
+    return this.http.get<Deposit[]>(`${this.baseUrl}${url}`, { params });
+  }
 
   post<T>(url: string, body: any): Observable<T> {
     return this.http.post<T>(`${this.baseUrl}${url}`, body);

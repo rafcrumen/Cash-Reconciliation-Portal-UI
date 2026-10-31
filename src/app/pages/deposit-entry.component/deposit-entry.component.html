@@ -1,5 +1,5 @@
 <!-- p-6 le da un espacio perfecto y uniforme de 24px respecto a todos los bordes -->
-<form [formGroup]="form" (ngSubmit)="guardar()" class="flex flex-col p-6 bg-white max-h-[90vh]">
+<form [formGroup]="form" (ngSubmit)="guardar()" class="flex flex-col p-5 bg-white max-h-[80vh]">
 
     <div class="pb-4 border-b border-slate-100 flex items-center gap-2">
         <i class="material-icons text-blue-600">wallet</i>
@@ -7,18 +7,20 @@
             {{ (data.mode === 'Add' ? 'DEPOSIT_ACTIONS.ADD_DEPOSIT' : 'DEPOSIT_ACTIONS.EDIT_DEPOSIT') | translate }}
         </h2>
     </div>
-    <div class="flex-1 overflow-y-auto py-5 flex flex-col gap-4 min-w-[320px] md:min-w-[440px]">
+    <!-- <div class="flex-1 overflow-y-auto py-5 flex flex-col gap-4 min-w-[260px] md:min-w-[320px]"> -->
+    <!-- Cambié overflow-y-auto por overflow-y-auto overflow-x-hidden, y quité los min-w -->
+    <div class="flex-1 overflow-y-auto overflow-x-hidden py-5 flex flex-col gap-4 w-full">
         <mat-form-field appearance="outline" class="w-full">
             <mat-label>{{ 'DEPOSIT.NUMBER' | translate }}</mat-label>
-            <input matInput formControlName="depositNumber" required placeholder="DEP-XXXX">
-            <mat-error *if="form.controls['depositNumber'].hasError('required')">
+            <input matInput formControlName="depositNumber" required placeholder="DEPXXXX">
+            <mat-error *ngIf="form.controls['depositNumber'].hasError('required')">
                 {{ 'VALIDATION.REQUIRED' | translate }}
             </mat-error>
         </mat-form-field>
         <mat-form-field appearance="outline" class="w-full">
             <mat-label>{{ 'DEPOSIT.STORE' | translate }}</mat-label>
-            <input matInput formControlName="storeNumber" required placeholder="ST-XXXX">
-            <mat-error *if="form.controls['storeNumber'].hasError('required')">
+            <input matInput formControlName="storeNumber" required placeholder="STXXXX">
+            <mat-error *ngIf="form.controls['storeNumber'].hasError('required')">
                 {{ 'VALIDATION.REQUIRED' | translate }}
             </mat-error>
         </mat-form-field>
@@ -26,7 +28,7 @@
             <mat-label>{{ 'DEPOSIT.EXPECTED' | translate }}</mat-label>
             <input type="number" matInput formControlName="expectedAmount" required min="0.01">
             <span matTextPrefix class="text-slate-400 mr-1">$</span>
-            <mat-error *if="form.controls['expectedAmount'].hasError('min')">
+            <mat-error *ngIf="form.controls['expectedAmount'].hasError('min')">
                 {{ 'VALIDATION.MIN_AMOUNT' | translate }}
             </mat-error>
         </mat-form-field>

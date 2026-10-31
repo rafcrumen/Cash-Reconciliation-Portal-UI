@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { DepositListComponent } from './pages/deposit-list.component/deposit-list.component';
 import { DashboardComponent } from './pages/dashboard.component/dashboard.component';
+import { HomeComponent } from './pages/home.component/home.component';
 
 export const routes: Routes = [
     {
@@ -8,10 +9,10 @@ export const routes: Routes = [
         redirectTo: 'home',
         pathMatch: 'full'
     },
-    // {
-    //     path: 'home',
-    //     component: HomeComponent
-    // },
+    {
+        path: 'home',
+        component: HomeComponent
+    },
     {
         path: 'deposit-list',
         component: DepositListComponent

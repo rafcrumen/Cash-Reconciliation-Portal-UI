@@ -17,14 +17,12 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './deposit-entry.component.css',
 })
 export class DepositEntryComponent {
-  // Inyecciones modernas con inject()
   public dialogRef = inject(MatDialogRef<DepositEntryComponent>);
   public data = inject(MAT_DIALOG_DATA);
 
   form: FormGroup;
 
   constructor() {
-    // Construcción limpia del formulario según los requisitos de tu examen
     this.form = new FormGroup({
       depositId: new FormControl(0),
       depositNumber: new FormControl('', [Validators.required, Validators.maxLength(50)]),

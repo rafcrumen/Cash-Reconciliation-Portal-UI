@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DepositReconciliateComponent } from './deposit-reconciliate.component';
+import { DepositReconciliateComponent } from './deposit-reconcile.component';
 
 describe('DepositConciliateComponent', () => {
   let component: DepositReconciliateComponent;

@@ -1,10 +1,13 @@
 <div class="mat-title text-2xl font-bold text-slate-800 mb-4">{{ 'APP.DEPOSIT_LIST_TITLE' | translate }}</div>
 <div class="text-red-500 mb-2 font-medium" *ngIf="error">{{ error }}</div>
 <div class="flex gap-2 mb-4">
+    <nav-home-button></nav-home-button>
     <button [title]="'BUTTONS.ADD' | translate" mat-mini-fab color="primary" (click)="add()">
         <i class="material-icons">add</i>
     </button>
-    <nav-home-button></nav-home-button>
+    <button [title]="'BUTTONS.FILTER' | translate" mat-mini-fab color="primary" (click)="filter()">
+        <i class="material-icons">filter_list</i>
+    </button>
 </div>
 <mat-table *ngIf="data.length > 0" [dataSource]="dataSource" class="w-full">
 
@@ -17,7 +20,17 @@
         <mat-header-cell *matHeaderCellDef class="font-semibold">{{ 'DEPOSIT.STORE' | translate }}</mat-header-cell>
         <mat-cell *matCellDef="let item">{{ item.storeNumber }}</mat-cell>
     </ng-container>
+    <ng-container matColumnDef="depositDate">
 
+        <mat-header-cell *matHeaderCellDef class="font-semibold">
+            {{ 'DEPOSIT.DATE' | translate }}
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let item">
+            {{ item.depositDate | date:'dd/MM/yyyy' }}
+        </mat-cell>
+
+    </ng-container>
     <ng-container matColumnDef="expectedAmount">
         <mat-header-cell *matHeaderCellDef class="justify-end text-right pr-4 font-semibold">{{ 'DEPOSIT.EXPECTED' |
             translate }}</mat-header-cell>
@@ -63,6 +76,9 @@
                 <button mat-icon-button color="primary" [title]="'BUTTON.RECONCILE' | translate"
                     (click)="setOptions(item)">
                     <i class="material-icons">assignment</i>
+                </button>
+                <button mat-icon-button color="primary" [title]="'BUTTON.EDIT' | translate" (click)="edit(item)">
+                    <i class="material-icons">edit</i>
                 </button>
             </div>
         </mat-cell>

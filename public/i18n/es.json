@@ -10,13 +10,16 @@
         "ACTUAL": "Monto Real",
         "VARIANCE": "Diferencia",
         "STATUS": "Estado",
-        "DATE": "Fecha de Depósito"
+        "DATE": "Fecha de Depósito",
+        "FECHAINI": "Fecha de Inicio",
+        "FECHAFIN": "Fecha Fin"
     },
     "DEPOSIT_ACTIONS": {
         "ADD_DEPOSIT": "Agregar Depósito",
         "EDIT_DEPOSIT": "Editar Depósito",
         "DELETE_DEPOSIT": "Eliminar Depósito",
-        "RECONCILIATE_DEPOSIT": "Conciliar Depósito"
+        "RECONCILIATE_DEPOSIT": "Conciliar Depósito",
+        "FILTER_DEPOSIT": "Filtrar Depositos"
     },
     "DASHBOARD": {
         "TITLE": "Panel de Control Contable",
@@ -50,7 +53,9 @@
         "HOME": "Home",
         "CANCEL": "Cancel",
         "SAVE": "Save",
-        "BACK": "Back"
+        "BACK": "Back",
+        "FILTER": "Filter",
+        "CLEAN": "Limpiar Datos"
     },
     "ERRORS-MESSAGES": {
         "DASHBOARD_LOADING": "Error loading dashboard stats"

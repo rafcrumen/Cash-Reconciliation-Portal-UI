@@ -4,27 +4,30 @@
         "DEPOSIT_LIST_TITLE": "Deposits"
     },
     "DEPOSIT": {
-        "NUMBER": "Número de Depósito",
-        "STORE": "Número de Tienda",
-        "EXPECTED": "Monto Esperado",
-        "ACTUAL": "Monto Real",
-        "VARIANCE": "Diferencia",
-        "STATUS": "Estado",
-        "DATE": "Fecha de Depósito"
+        "NUMBER": "Deposit Number",
+        "STORE": "Store Number",
+        "EXPECTED": "Expected Amount",
+        "ACTUAL": "ACtual Amount",
+        "VARIANCE": "Variance",
+        "STATUS": "Status",
+        "DATE": "Deposit's Date",
+        "FECHAINI": "Start Date",
+        "FECHAFIN": "End Date"
     },
     "DEPOSIT_ACTIONS": {
         "ADD_DEPOSIT": "Add Deposit",
         "EDIT_DEPOSIT": "Edit Deposit",
         "DELETE_DEPOSIT": "Delete Deposit",
-        "RECONCILIATE_DEPOSIT": "Reconciliate Deposit"
+        "RECONCILIATE_DEPOSIT": "Reconciliate Deposit",
+        "FILTER_DEPOSIT": "Filter Deposits"
     },
     "DASHBOARD": {
-        "TITLE": "Panel de Control Contable",
-        "TOTAL_DEPOSITS": "Total Depósitos",
-        "MATCHED_DEPOSITS": "Depósitos Conciliados",
-        "SHORTAGES": "Faltantes",
-        "OVERAGES": "Sobrantes",
-        "TOTAL_VARIANCE": "Diferencia Total"
+        "TITLE": "Cash Reconciliation Portal",
+        "TOTAL_DEPOSITS": "Total Deposits",
+        "MATCHED_DEPOSITS": "Match Deposits",
+        "SHORTAGES": "Shortage Deposits",
+        "OVERAGES": "Overage Deposits",
+        "TOTAL_VARIANCE": "Total Vairance"
     },
     "STATUS": {
         "PENDING": "Pending",
@@ -33,10 +36,10 @@
         "SHORTAGE": "Shortage"
     },
     "COMMON": {
-        "CANCEL": "Cancelar",
-        "ADD": "Agregar",
-        "SAVE": "Guardar",
-        "ACTIONS": "Acciones"
+        "CANCEL": "Cancel",
+        "ADD": "Add",
+        "SAVE": "Save",
+        "ACTIONS": "Actions"
     },
     "NAVBAR": {
         "DASHBOARD": "Dashboard",
@@ -46,11 +49,13 @@
         "REPORTS": "Reports"
     },
     "BUTTONS": {
-        "ADD": "Agregar",
+        "ADD": "Add",
         "HOME": "Home",
         "CANCEL": "Cancel",
         "SAVE": "Save",
-        "BACK": "Back"
+        "BACK": "Back",
+        "FILTER": "Filter",
+        "CLEAN": "Clean Data"
     },
     "ERRORS-MESSAGES": {
         "DASHBOARD_LOADING": "Error loading dashboard stats"
